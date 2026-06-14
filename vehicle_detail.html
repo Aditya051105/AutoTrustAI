@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Detail</title>
+</head>
+<body>
+
+<h1>Vehicle Details</h1>
+
+<p>Brand: {{ vehicle.brand }}</p>
+
+<p>Model: {{ vehicle.model_name }}</p>
+
+<p>Variant: {{ vehicle.variant }}</p>
+
+<p>Year: {{ vehicle.manufacturing_year }}</p>
+
+<p>Fuel Type: {{ vehicle.fuel_type }}</p>
+
+<p>Transmission: {{ vehicle.transmission }}</p>
+
+<p>Kilometers Driven: {{ vehicle.kilometers_driven }}</p>
+
+<p>Owners: {{ vehicle.number_of_owners }}</p>
+
+<p>Location: {{ vehicle.location }}</p>
+
+<h2>Vehicle Images</h2>
+
+{% for image in images %}
+
+<img
+    src="{{ image.image.url }}"
+    width="300"
+>
+
+{% endfor %}
+<hr>
+
+<a href="/predict-price/{{ vehicle.id }}/">
+    Predict Market Price
+</a>
+
+<hr>
+
+{% if prediction %}
+
+<h2>AI Price Prediction</h2>
+
+<p>
+
+Predicted Price:
+₹{{ prediction.predicted_price }}
+</p>
+
+<p>
+Confidence:
+{{ prediction.confidence_score }}%
+</p>
+
+{% endif %}
+<hr>
+
+<a href="/trust-score/{{ vehicle.id }}/">
+    Generate Trust Score
+</a>
+
+<hr>
+
+{% if trust %}
+
+<h2>Vehicle Trust Analysis</h2>
+
+<p>Trust Score: {{ trust.score }}/100</p>
+
+<p>Risk Level: {{ trust.risk_level }}</p>
+
+<p>Recommendation: {{ trust.recommendation }}</p>
+
+{% endif %}
+
+<hr>
+
+<a href="/report/{{ vehicle.id }}/">
+    Download Inspection Report
+</a>
+
+<hr>
+
+<a href="/repair-cost/{{ vehicle.id }}/">
+Generate Repair Cost
+</a>
+
+<hr>
+
+{% if repair %}
+
+<h2>Repair Cost Estimation</h2>
+
+<p>Scratch Repair: ₹{{ repair.scratch_cost }}</p>
+
+<p>Dent Repair: ₹{{ repair.dent_cost }}</p>
+
+<p>Rust Repair: ₹{{ repair.rust_cost }}</p>
+
+<p>Broken Light Repair: ₹{{ repair.broken_light_cost }}</p>
+
+<h3>Total Repair Cost: ₹{{ repair.total_cost }}</h3>
+
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoTrust AI Dashboard</title>
+</head>
+<body>
+
+<h1>Welcome {{ request.user.username }}</h1>
+
+<p>Role: {{ request.user.role }}</p>
+
+<hr>
+
+<a href="/add-vehicle/">
+    Add Vehicle
+</a>
+
+<br><br>
+
+<a href="/vehicles/">
+    My Vehicles
+</a>
+
+<br><br>
+
+<a href="/logout/">
+    Logout
+</a>
+
+</body>
+</html>
