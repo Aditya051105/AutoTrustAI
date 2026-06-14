@@ -1,24 +1,42 @@
-from django.urls import path
+from django.contrib import admin
 
-from .views import *
+from django.urls import path
+from django.urls import include
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('', home, name='home'),
+
     path(
-        'register/',
-        register_view,
-        name='register'
+        'admin/',
+        admin.site.urls
     ),
 
     path(
-        'login/',
-        login_view,
-        name='login'
+        '',
+        include('users.urls')
     ),
-
+    
     path(
-        'logout/',
-        logout_view,
-        name='logout'
-    ),
+        '',
+        include('vehicles.urls')
+        ),
+    
+    path(
+        '',
+        include('dashboard.urls')
+        ),
 ]
+
+if settings.DEBUG:
+
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
+    path(
+    '',
+    include('dashboard.urls')
+),

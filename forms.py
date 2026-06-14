@@ -1,20 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-
-from .models import CustomUser
+from .models import Vehicle
 
 
-class RegisterForm(UserCreationForm):
+class VehicleForm(forms.ModelForm):
 
     class Meta:
-
-        model = CustomUser
-
-        fields = [
-            'username',
-            'email',
-            'phone',
-            'role',
-            'password1',
-            'password2'
-        ]
+        model = Vehicle
+        exclude = ['owner']
