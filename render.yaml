@@ -54,3 +54,4 @@ databases:
     user: autotrust_admin
     plan: free
     region: oregon
+

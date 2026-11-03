@@ -135,3 +135,4 @@ Once deployment finishes, open your frontend URL to explore with pre-seeded acco
 - **Database Connection**: `build.sh` automatically runs `python manage.py migrate` and `python populate.py` on every deploy.
 - **Static Assets**: WhiteNoise (`whitenoise.middleware.WhiteNoiseMiddleware`) serves Django admin and static files without requiring an Nginx proxy.
 - **Inspect Logs**: Check **Logs** tab in Render Dashboard for both Web Service and Static Site if a build fails.
+

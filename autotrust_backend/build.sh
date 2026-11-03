@@ -15,3 +15,4 @@ echo "==> Seeding initial demo showroom vehicles and accounts..."
 python populate.py
 
 echo "==> Backend build completed successfully!"
+
