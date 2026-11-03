@@ -27,13 +27,14 @@ services:
   # -------------------------------------------------------------
   # AutoTrust AI - React/Vite Frontend Static Site
   # -------------------------------------------------------------
-  - type: staticSite
+  - type: web
     name: autotrust-frontend
+    runtime: static
     plan: free
     region: oregon
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
@@ -54,4 +55,3 @@ databases:
     user: autotrust_admin
     plan: free
     region: oregon
-
