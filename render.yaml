@@ -25,13 +25,11 @@ services:
           property: connectionString
 
   # -------------------------------------------------------------
-  # AutoTrust AI - React/Vite Frontend Static Site
+  # AutoTrust AI - React/Vite Frontend Static Site (Global CDN)
   # -------------------------------------------------------------
   - type: web
     name: autotrust-frontend
     runtime: static
-    plan: free
-    region: oregon
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
